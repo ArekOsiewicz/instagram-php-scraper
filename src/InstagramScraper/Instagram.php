@@ -141,7 +141,9 @@ class Instagram
         if (is_object($rawError)) {
             $str = '';
             foreach ($rawError as $key => $value) {
-                $str .= ' ' . $key . ' => ' . $value . ';';
+                if (is_string($value)) {
+                    $str .= ' ' . $key . ' => ' . $value . ';';
+                }
             }
             return $str;
         } else {
